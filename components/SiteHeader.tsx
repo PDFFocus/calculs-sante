@@ -1,11 +1,16 @@
 import Link from "next/link";
 
 const calculateurs = [
-  { href: "/calculateur-imc/", label: "IMC & Poids" },
-  { href: "/calculateur-metabolisme-de-base/", label: "Nutrition" },
+  { href: "/calculateur-imc/", label: "IMC" },
+  { href: "/calculateur-metabolisme-de-base/", label: "Métabolisme" },
   { href: "/calculateur-poids-ideal/", label: "Poids idéal" },
   { href: "/calculateur-calories-journalieres/", label: "Calories" },
-  { href: "/date-accouchement/", label: "Grossesse" },
+  { href: "/calculateur-glycemie/", label: "Glycémie" },
+  { href: "/calculateur-tension-arterielle/", label: "Tension" },
+  { href: "/calculateur-cycles-menstruels/", label: "Cycles" },
+  { href: "/calculateur-semaines-grossesse/", label: "Grossesse SA" },
+  { href: "/date-accouchement/", label: "Accouchement" },
+  { href: "/calculateur-consommation-eau/", label: "Hydratation" },
 ];
 
 export default function SiteHeader() {

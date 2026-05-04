@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Calculateurs de santé gratuits — Calculs Santé",
   description:
-    "Calculateurs de santé gratuits et validés : IMC, métabolisme de base, poids idéal, calories journalières, date d'accouchement. Résultats instantanés, aucune inscription.",
+    "Calculateurs de santé gratuits et validés : IMC, glycémie, tension artérielle, cycles menstruels, semaines de grossesse, hydratation et plus. Résultats instantanés, aucune inscription.",
   alternates: { canonical: "/" },
 };
 
@@ -59,14 +59,67 @@ const calculateurs = [
     popular: false,
     time: "30 secondes",
   },
+  {
+    href: "/calculateur-glycemie/",
+    title: "Glycémie",
+    description: "Convertissez votre glycémie entre mmol/L et mg/dL et interprétez votre résultat (normal, prédiabète, diabète).",
+    icon: "🩸",
+    tag: "Diabète",
+    color: "red",
+    popular: false,
+    time: "30 secondes",
+  },
+  {
+    href: "/calculateur-tension-arterielle/",
+    title: "Tension artérielle",
+    description: "Analysez votre tension artérielle selon la classification ESC 2018 : optimale, normale ou HTA.",
+    icon: "❤️",
+    tag: "Cardio",
+    color: "purple",
+    popular: false,
+    time: "30 secondes",
+  },
+  {
+    href: "/calculateur-cycles-menstruels/",
+    title: "Cycles menstruels",
+    description: "Calculez vos prochaines règles, l'ovulation et la fenêtre fertile sur 3 cycles.",
+    icon: "🌙",
+    tag: "Féminin",
+    color: "pink",
+    popular: false,
+    time: "1 minute",
+  },
+  {
+    href: "/calculateur-semaines-grossesse/",
+    title: "Semaines de grossesse",
+    description: "Connaissez votre nombre de SA, votre trimestre et la progression de votre grossesse en temps réel.",
+    icon: "👶",
+    tag: "Grossesse",
+    color: "rose",
+    popular: false,
+    time: "30 secondes",
+  },
+  {
+    href: "/calculateur-consommation-eau/",
+    title: "Consommation d'eau",
+    description: "Calculez votre besoin hydrique quotidien en litres et en verres selon votre poids et activité.",
+    icon: "💧",
+    tag: "Hydratation",
+    color: "blue",
+    popular: false,
+    time: "30 secondes",
+  },
 ];
 
 const colorMap: Record<string, { border: string; icon: string; tag: string; btn: string }> = {
-  green:  { border: "border-t-teal-500",  icon: "bg-teal-50",  tag: "text-teal-700 bg-teal-50",  btn: "text-teal-700 hover:text-teal-800" },
-  orange: { border: "border-t-orange-400", icon: "bg-orange-50", tag: "text-orange-700 bg-orange-50", btn: "text-orange-600 hover:text-orange-700" },
-  blue:   { border: "border-t-blue-500",  icon: "bg-blue-50",  tag: "text-blue-700 bg-blue-50",  btn: "text-blue-700 hover:text-blue-800" },
-  teal:   { border: "border-t-cyan-500",  icon: "bg-cyan-50",  tag: "text-cyan-700 bg-cyan-50",  btn: "text-cyan-700 hover:text-cyan-800" },
-  rose:   { border: "border-t-rose-400",  icon: "bg-rose-50",  tag: "text-rose-700 bg-rose-50",  btn: "text-rose-700 hover:text-rose-800" },
+  green:  { border: "border-t-teal-500",   icon: "bg-teal-50",    tag: "text-teal-700 bg-teal-50",    btn: "text-teal-700 hover:text-teal-800" },
+  orange: { border: "border-t-orange-400", icon: "bg-orange-50",  tag: "text-orange-700 bg-orange-50", btn: "text-orange-600 hover:text-orange-700" },
+  blue:   { border: "border-t-blue-500",   icon: "bg-blue-50",    tag: "text-blue-700 bg-blue-50",    btn: "text-blue-700 hover:text-blue-800" },
+  teal:   { border: "border-t-cyan-500",   icon: "bg-cyan-50",    tag: "text-cyan-700 bg-cyan-50",    btn: "text-cyan-700 hover:text-cyan-800" },
+  rose:   { border: "border-t-rose-400",   icon: "bg-rose-50",    tag: "text-rose-700 bg-rose-50",    btn: "text-rose-700 hover:text-rose-800" },
+  red:    { border: "border-t-red-400",    icon: "bg-red-50",     tag: "text-red-700 bg-red-50",      btn: "text-red-700 hover:text-red-800" },
+  purple: { border: "border-t-purple-400", icon: "bg-purple-50",  tag: "text-purple-700 bg-purple-50", btn: "text-purple-700 hover:text-purple-800" },
+  pink:   { border: "border-t-pink-400",   icon: "bg-pink-50",    tag: "text-pink-700 bg-pink-50",    btn: "text-pink-700 hover:text-pink-800" },
 };
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://calculs-sante.fr";
@@ -103,7 +156,7 @@ export default function HomePage() {
             <div className="flex items-center gap-8 justify-center lg:justify-start">
               {[
                 { n: "50K+", l: "utilisateurs/mois" },
-                { n: "5", l: "calculateurs" },
+                { n: "10", l: "calculateurs" },
                 { n: "100%", l: "gratuit" },
               ].map(({ n, l }) => (
                 <div key={l} className="text-center">
