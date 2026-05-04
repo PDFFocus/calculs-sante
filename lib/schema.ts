@@ -56,3 +56,65 @@ export function generateFAQSchema(items: FAQItem[]): Record<string, unknown> {
     })),
   };
 }
+
+interface ArticleSchemaOptions {
+  title: string;
+  description: string;
+  url: string;
+  datePublished?: string;
+  dateModified?: string;
+}
+
+export function generateArticleSchema({
+  title,
+  description,
+  url,
+  datePublished = "2025-01-01",
+  dateModified = "2025-05-01",
+}: ArticleSchemaOptions): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    url: `${siteUrl}${url}`,
+    inLanguage: "fr-FR",
+    datePublished,
+    dateModified,
+    author: {
+      "@type": "Organization",
+      name: "Calculs Santé",
+      url: siteUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Calculs Santé",
+      url: siteUrl,
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Calculs Santé",
+      url: siteUrl,
+    },
+  };
+}
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+export function generateBreadcrumbSchema(
+  items: BreadcrumbItem[]
+): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map(({ name, url }, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name,
+      item: `${siteUrl}${url}`,
+    })),
+  };
+}
