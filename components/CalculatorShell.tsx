@@ -31,8 +31,8 @@ export default function CalculatorShell({
         {children}
       </div>
 
-      <p className="mt-6 text-xs text-gray-400 text-center">
-        Résultats à titre indicatif uniquement — ne remplace pas un avis médical professionnel.
+      <p className="mt-4 text-sm text-gray-500 border-t pt-3">
+        Ces calculs sont fournis à titre informatif uniquement et ne remplacent pas un avis médical professionnel.
       </p>
     </main>
   );
